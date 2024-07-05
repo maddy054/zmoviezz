@@ -1,0 +1,677 @@
+Jun 21, 2024 10:48:49 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:53:44 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:53:45 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:53:45 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:53:48 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:20 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:21 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:21 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:21 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:21 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:52 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:53 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:55:53 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:56:01 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:56:01 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:56:02 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:57:00 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:57:01 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 10:57:01 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:33:55 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:40:42 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:41:31 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:47:47 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:53:11 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 11:56:58 AM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:05:48 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:05:48 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:05:49 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:05:50 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:05:52 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 12:44:41 PM com.zmovizz.utility.CustomLogger log
+WARNING: [Ljava.lang.StackTraceElement;@3383ec32
+Jun 21, 2024 12:44:42 PM com.zmovizz.utility.CustomLogger log
+WARNING: [Ljava.lang.StackTraceElement;@1a451b6e
+Jun 21, 2024 12:44:42 PM com.zmovizz.utility.CustomLogger log
+WARNING: [Ljava.lang.StackTraceElement;@5f3b6b87
+Jun 21, 2024 12:44:51 PM com.zmovizz.utility.CustomLogger log
+WARNING: [Ljava.lang.StackTraceElement;@e1e68b2
+Jun 21, 2024 12:50:40 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 1, number of columns: 0.
+	at org.postgresql.core.v3.SimpleParameterList.bind(SimpleParameterList.java:70)
+	at org.postgresql.core.v3.SimpleParameterList.setBinaryParameter(SimpleParameterList.java:144)
+	at org.postgresql.jdbc.PgPreparedStatement.bindBytes(PgPreparedStatement.java:1113)
+	at org.postgresql.jdbc.PgPreparedStatement.setInt(PgPreparedStatement.java:332)
+	at org.postgresql.jdbc.PgPreparedStatement.setObject(PgPreparedStatement.java:1021)
+	at com.zmovizz.utility.QueryBuilder.setValues(QueryBuilder.java:269)
+	at com.zmovizz.utility.QueryBuilder.executeQuery(QueryBuilder.java:245)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:126)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 5:36:43 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 5:53:57 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 5:55:24 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:18:09 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:09 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:15 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:15 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:16 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:16 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:16 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:30 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:30 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:30 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:52 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:18:53 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:19:41 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:19:41 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: The column index is out of range: 0, number of columns: 24.
+	at org.postgresql.jdbc.PgResultSetMetaData.getField(PgResultSetMetaData.java:420)
+	at org.postgresql.jdbc.PgResultSetMetaData.getSQLType(PgResultSetMetaData.java:432)
+	at org.postgresql.jdbc.PgResultSetMetaData.getColumnType(PgResultSetMetaData.java:333)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:222)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:130)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:22)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+Jun 21, 2024 6:19:43 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:19:44 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:20:16 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:20:23 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:21:45 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:24:15 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:26:10 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 21, 2024 6:36:14 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan

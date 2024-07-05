@@ -1,0 +1,166 @@
+Jun 25, 2024 4:00:44 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 5:53:58 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.zmovizz.utility.QueryBuilder.getConnection(QueryBuilder.java:40)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:234)
+	at com.zmovizz.utility.QueryBuilder.buildWhere(QueryBuilder.java:176)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:138)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:28)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 40 more
+
+Jun 25, 2024 5:54:09 PM com.zmovizz.utility.CustomLogger log
+WARNING: Some thing happened
+org.postgresql.util.PSQLException: Connection to localhost:5432 refused. Check that the hostname and port are correct and that the postmaster is accepting TCP/IP connections.
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:346)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:273)
+	at org.postgresql.Driver.makeConnection(Driver.java:446)
+	at org.postgresql.Driver.connect(Driver.java:298)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:677)
+	at java.sql/java.sql.DriverManager.getConnection(DriverManager.java:228)
+	at com.zmovizz.utility.QueryBuilder.getConnection(QueryBuilder.java:40)
+	at com.zmovizz.utility.QueryBuilder.getColumnNames(QueryBuilder.java:234)
+	at com.zmovizz.utility.QueryBuilder.buildWhere(QueryBuilder.java:176)
+	at com.zmovizz.utility.QueryBuilder.buildSelect(QueryBuilder.java:138)
+	at com.zmovizz.persistance.DbConnector.getUser(DbConnector.java:28)
+	at org.apache.jsp.jsp.welcome_jsp._jspService(welcome_jsp.java:129)
+	at org.apache.jasper.runtime.HttpJspBase.service(HttpJspBase.java:70)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.jasper.servlet.JspServletWrapper.service(JspServletWrapper.java:465)
+	at org.apache.jasper.servlet.JspServlet.serviceJspFile(JspServlet.java:383)
+	at org.apache.jasper.servlet.JspServlet.service(JspServlet.java:331)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:583)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:212)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:181)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:156)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.valves.AbstractAccessLogValve.invoke(AbstractAccessLogValve.java:679)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:346)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:617)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:934)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1690)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Caused by: java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:608)
+	at org.postgresql.core.PGStream.createSocket(PGStream.java:243)
+	at org.postgresql.core.PGStream.<init>(PGStream.java:98)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:136)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:262)
+	... 40 more
+
+Jun 25, 2024 5:54:49 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 5:54:49 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 5:55:01 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 6:39:41 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:39:54 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:40:57 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:41:01 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:41:08 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:41:30 PM com.zmovizz.utility.CustomLogger log
+INFO: /zmoviezz/api/v1/user
+Jun 25, 2024 6:52:33 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 6:52:52 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 6:53:41 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 6:53:58 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 6:57:44 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:00:00 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:00:11 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:07:27 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:08:21 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:09:36 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:10:36 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:10:58 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:11:22 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:11:26 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 7:27:10 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan
+Jun 25, 2024 8:20:28 PM com.zmovizz.utility.CustomLogger log
+INFO: name of user is Madhavan

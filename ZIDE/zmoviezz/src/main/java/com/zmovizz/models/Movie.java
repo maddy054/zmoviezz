@@ -1,22 +1,25 @@
 //$Id$
 package com.zmovizz.models;
 
+import com.zmovizz.models.Constants.Language;
+import com.zmovizz.models.Constants.MovieType;
+
 public class Movie{
 	private int id;
 	private String name;
 	private String actor;
-	private int genere;
+	private MovieType genere;
 	private String description;
 	private long releaseDate;
-	private byte[] image;	
-	private long duration;
-	private int language;
+	private String image;	
+	private double duration;
+	private Language language;
 	
 	
 	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -31,10 +34,10 @@ public class Movie{
 	public void setActor(String actor) {
 		this.actor = actor;
 	}
-	public int getGenere() {
+	public MovieType getGenere() {
 		return genere;
 	}
-	public void setGenere(Integer genere) {
+	public void setGenere(MovieType genere) {
 		this.genere = genere;
 	}
 	public String getDescription() {
@@ -46,25 +49,25 @@ public class Movie{
 	public long getReleaseDate() {
 		return releaseDate;
 	}
-	public void setReleaseDate(Long releaseDate) {
+	public void setReleaseDate(long releaseDate) {
 		this.releaseDate = releaseDate;
 	}
-	public byte[] getImage() {
+	public String getImage() {
 		return image;
 	}
-	public void setImage(byte[] image) {
+	public void setImage(String image) {
 		this.image = image;
 	}
-	public long getDuration() {
+	public double getDuration() {
 		return duration;
 	}
-	public void setDuration(Long duration) {
+	public void setDuration(double duration) {
 		this.duration = duration;
 	}
-	public int getLanguage() {
+	public Language getLanguage() {
 		return language;
 	}
-	public void setLanguage(Integer language) {
+	public void setLanguage(Language language) {
 		this.language = language;
 	}
 

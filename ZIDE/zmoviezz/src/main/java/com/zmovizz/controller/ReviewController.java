@@ -1,7 +1,9 @@
-//$Id$
+	//$Id$
 package com.zmovizz.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Response;
@@ -12,7 +14,7 @@ import com.zmovizz.persistance.ReviewDAO;
 public class ReviewController {
 	ReviewDAO reviewDao = new  ReviewDAO();
 	Response response = new Response();
-	
+	Logger logger = Logger.getLogger(ReviewController.class.getName());
 	
 	public Response get(List<Object> param) {
 		
@@ -23,6 +25,7 @@ public class ReviewController {
 			response.setData(result);
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}
@@ -39,6 +42,7 @@ public class ReviewController {
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}
@@ -53,6 +57,7 @@ public class ReviewController {
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}

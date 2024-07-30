@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 
 import com.zmovizz.models.Show;
+import com.zmovizz.models.Ticket;
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Constants.StatusCode;
 import com.zmovizz.models.Constants.Tables;
@@ -81,24 +82,39 @@ public class ShowDAO {
 		}
 		
 	}
-	public List<Object> getAll(int movie,int theater,long time) throws MovieException {
+	public List<Object> getAll(int theater,long time) throws MovieException {
 		try {
 			
 			QueryBuilder queryBuilder = new QueryBuilder(Tables.SHOW_DETAILS.get(),Tables.MOVIE_DETAILS.get());
-			String query = queryBuilder.join(4,1).where(4,5,7).between(1,2).buildSelect();
+			String query = queryBuilder.join(4,1).where(5,7).between(2).buildSelect();
 			
 			LocalDate date = LocalDate.ofInstant(Instant.ofEpochMilli(time), ZoneId.of("Asia/Kolkata"));
 
 			long endOfDay = date.plusDays(1).atStartOfDay().toInstant(ZoneOffset.ofHoursMinutes(+5, +30)).toEpochMilli();
 			
 			
-			return  queryBuilder.executeQuery(Show.class, query, movie,0,theater,time,endOfDay);
+			return  queryBuilder.executeQuery(Show.class, query, 0,theater,time,endOfDay);
 			
 		}catch(SQLException e) {
 			CustomLogger.log(Level.WARNING, e.getMessage(),e);
 			throw new MovieException(StatusCode.SQL_ERROR);
 		}
 	
+	}
+	
+	public List<Object> getByTime(int theater,long startTime,long endTime) throws MovieException{
+		
+		QueryBuilder queryBuilder  = new QueryBuilder(Tables.SHOW_DETAILS.get(), Tables.TICKET_DETAILS.get(),Tables.PAYMENT_DETAILS.get());
+		
+		try {
+			String query = queryBuilder.join(1,2,7,1).where(7).between(2).buildSelect();
+			return queryBuilder.executeQuery(Ticket.class, query,theater,startTime,endTime);
+		} catch (SQLException e) {
+			
+			CustomLogger.log(Level.INFO, e.getMessage(),e);
+			throw new MovieException(StatusCode.SQL_ERROR);
+		
+		}
 	}
 	
 	

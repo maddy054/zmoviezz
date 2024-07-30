@@ -1,7 +1,9 @@
-	//$Id$
+ 	//$Id$
 package com.zmovizz.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.json.JSONObject;
 
@@ -16,7 +18,7 @@ import com.zmovizz.utility.JSONConverter;
 public class UserController {
 	UserDAO userDao = new  UserDAO();
 	Response response = new Response();
-	
+	Logger logger = Logger.getLogger(UserController.class.getName());
 	
 	public Response get(List<Object> param) {
 		
@@ -31,6 +33,7 @@ public class UserController {
 			response.setData(json.toMap());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}
@@ -48,6 +51,7 @@ public class UserController {
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}
@@ -60,6 +64,7 @@ public class UserController {
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}
@@ -80,6 +85,7 @@ public class UserController {
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
+			logger.log(Level.INFO,e.getMessage(),e);
 			response.setResponseCode(e.getError().get());
 			
 		}

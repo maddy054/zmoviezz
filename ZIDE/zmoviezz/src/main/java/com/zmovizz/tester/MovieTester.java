@@ -1,7 +1,7 @@
 //$Id$
 package com.zmovizz.tester;
 
-import com.zmoviezz.cache.RedisCache;
+import com.zmovizz.cache.RedisCache;
 
 public class MovieTester {
 

@@ -8,6 +8,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.security.GeneralSecurityException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,8 +16,12 @@ import org.json.JSONObject;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.zmovizz.exceptions.MovieException;
+import com.zmovizz.models.Constants.Language;
+import com.zmovizz.models.Constants.MovieType;
 import com.zmovizz.models.Constants.StatusCode;
+import com.zmovizz.models.Constants.UserRole;
 
 
 public class JSONConverter {
@@ -24,16 +29,8 @@ public class JSONConverter {
 	
 	public static String getJson(Object object) {
 		
-	
-		 ObjectMapper objectMapper = new ObjectMapper();
-		 String json = "";
-	     try {
-			json = objectMapper.writeValueAsString(object);
-			
-		} catch (JsonProcessingException e) {
-			
-		}
-	     return json;
+		Gson gson = new Gson();
+		return gson.toJson(object);
 	}
 	
 	public static  JSONObject getJsonObj(Object object) throws MovieException {
@@ -49,47 +46,67 @@ public class JSONConverter {
 	     
 	}
 	
+	public static JSONObject getJsonObj(HttpServletRequest req) throws MovieException {
+		
+		StringBuilder stringBuilder = new StringBuilder();
+        
+		try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream(), "UTF-8"))) {
+            char[] charBuffer = new char[1024];
+            int bytesRead;
+            while ((bytesRead = bufferedReader.read(charBuffer)) != -1) {
+                stringBuilder.append(charBuffer, 0, bytesRead);
+            }
+        } catch (IOException e) {
+        	e.printStackTrace();
+        	throw new MovieException(StatusCode.SQL_ERROR);
+		
+		} 
+	   
+	      return new JSONObject(stringBuilder.toString());
+	}
+	
 
 	
-	 public static <T> T convertJSONToObject(HttpServletRequest req, Class<T> clazz) throws MovieException {
+	 public static <T> T convertJSONToObject(JSONObject jsonObject, Class<T> clazz) throws MovieException {
 	
 		try {
-			StringBuilder stringBuilder = new StringBuilder();
-	        
-			try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(req.getInputStream(), "UTF-8"))) {
-	            char[] charBuffer = new char[1024];
-	            int bytesRead;
-	            while ((bytesRead = bufferedReader.read(charBuffer)) != -1) {
-	                stringBuilder.append(charBuffer, 0, bytesRead);
-	            }
-	        } 
+			
 		   
-		      JSONObject jsonObject = new JSONObject(stringBuilder.toString());
 	        T object = clazz.getDeclaredConstructor().newInstance();
 
 	        for (Field field : clazz.getDeclaredFields()) {
 	            String fieldName = field.getName();
-	            Class<?> fieldType = String.class;
+	            Class<?> fieldType = field.getType();
 	            
 	            if (jsonObject.has(fieldName)) {
 	                Object value = jsonObject.get(fieldName);
+	               
 	                
-	                
-	                if (field.getType().equals(int.class)) {
-	                	fieldType = Integer.class;
+	                if (fieldType.equals(int.class)) {
+	               
 	                    value = Integer.valueOf(value.toString());
 	                    	
-	                } else if (field.getType().equals(double.class) ) {
-	                	fieldType = Double.class;
+	                } else if (fieldType.equals(double.class) ) {
+	                
 	                	
 	                    value = Double.valueOf(value.toString());
 	                    
-	                } else if (field.getType().equals(long.class)) {
-	                	fieldType = Long.class;
+	                } else if (fieldType.equals(long.class)) {
+	             
 	                	
 	                    value = Long.valueOf(value.toString());
-	                } 
-	                System.out.println(field.getType().getClass());
+	                    
+	                } else if(fieldType.equals(UserRole.class)) {
+	                	
+	                	value = UserRole.valueOf(value.toString());
+	                	
+	                }else if(fieldType.equals(MovieType.class)) {
+	                
+	                	value = MovieType.valueOf(value.toString());
+	                }else if(fieldType.equals(Language.class)) {
+	                	value = Language.valueOf(value.toString());
+	                }
+	           
 	                
 	                
 	                Method setter;
@@ -101,7 +118,7 @@ public class JSONConverter {
 	        }
 	        
 	        return object;
-		 }catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException | IOException e) {
+		 }catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException | InstantiationException  e) {
 				
 				e.printStackTrace();
 				throw new MovieException(StatusCode.SQL_ERROR);

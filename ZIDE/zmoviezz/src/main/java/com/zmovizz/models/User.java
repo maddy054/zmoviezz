@@ -1,21 +1,23 @@
 //$Id$
 package com.zmovizz.models;
 
+import com.zmovizz.models.Constants.UserRole;
+
 public class User {
+	
 	private int id;
 	private String password;
 	private String name;
-	private int role;
+	private UserRole role;
 	private long phoneNumber;
 	private int location;
 	private long createdAt;
-	public User() {
-		
-	}
+	
+	
 	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getPassword() {
@@ -30,28 +32,28 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getRole() {
+	public UserRole getRole() {
 		return role;
 	}
-	public void setRole(Integer role) {
+	public void setRole(UserRole role) {
 		this.role = role;
 	}
 	public long getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(Long phoneNumber) {
+	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public int getLocation() {
 		return location;
 	}
-	public void setLocation(Integer location) {
+	public void setLocation(int location) {
 		this.location = location;
 	}
 	public long getCreatedAt() {
 		return createdAt;
 	}
-	public void setCreatedAt(Long createdAt) {
+	public void setCreatedAt(long createdAt) {
 		this.createdAt = createdAt;
 	}
 	

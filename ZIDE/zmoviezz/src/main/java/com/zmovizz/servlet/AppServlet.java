@@ -25,14 +25,10 @@ public class AppServlet extends HttpServlet {
 	     response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
 	     response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, APIKEY");
 	        
-		HttpSession session = request.getSession(false);
-	    System.out.println(session.getId());
+
+	    //System.out.println(session.getId());
 		String path = request.getRequestURI().substring(request.getContextPath().length());
-		System.out.println(path);
-		Cookie jsessionidCookie = new Cookie("JSESSIONID", session.getId());
-		jsessionidCookie.setPath("/");
-		// Do not set HttpOnly flag
-		response.addCookie(jsessionidCookie);
+		
 
 		
 		if (!path.startsWith("/api") && !path.startsWith("/app/ember") && !path.startsWith("/ember-fetch") && !path.startsWith("ember/tests") && 

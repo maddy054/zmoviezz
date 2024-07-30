@@ -33,19 +33,21 @@
         	<servlet-class>com.zmovizz.servlet.AppServlet</servlet-class>
         </servlet>
         
-		<servlet-mapping>
+		 <servlet-mapping>
         	<servlet-name>AppServlet</servlet-name>
-        	<url-pattern>/app/*</url-pattern>
+        	<url-pattern>/zmoviezz/*</url-pattern>
         </servlet-mapping>
   
-       <!--  <filter>
-        	<filter-name>AppFilter</filter-name>
-        	<filter-class>com.zmovizz.filters.Authorize</filter-class>
+        
+        
+         <filter>
+        	<filter-name>ApiFilter</filter-name>
+        	<filter-class>com.zmovizz.filters.ApiFilter</filter-class>
         </filter>
         
       <filter-mapping>
-        	<filter-name>AppFilter</filter-name>
-        	<url-pattern>/*</url-pattern>
-        </filter-mapping> -->
+        	<filter-name>ApiFilter</filter-name>
+        	<url-pattern>/api/v1/*</url-pattern>
+        </filter-mapping> 
 </web-app>
 

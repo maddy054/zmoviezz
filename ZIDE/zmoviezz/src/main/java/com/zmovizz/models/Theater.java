@@ -10,7 +10,7 @@ public class Theater {
 	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -22,13 +22,13 @@ public class Theater {
 	public int getManager() {
 		return manager;
 	}
-	public void setManager(Integer manager) {
+	public void setManager(int manager) {
 		this.manager = manager;
 	}
 	public int getLocation() {
 		return location;
 	}
-	public void setLocation(Integer locationId) {
+	public void setLocation(int locationId) {
 		this.location = locationId;
 	}
 	public String getAddress() {

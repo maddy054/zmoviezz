@@ -31,6 +31,26 @@ public class TheaterDAO {
 		
 		}
 	}
+
+	public  Theater getByManager(Integer managerId) throws MovieException {
+		
+		QueryBuilder queryBuilder  = new QueryBuilder(Tables.THEATER_DETAILS.get());
+		
+		try {
+			String query = queryBuilder.where(3).buildSelect();
+			
+			List<Object> result = queryBuilder.executeQuery(Theater.class, query,managerId);
+			if(result.isEmpty()) {
+				throw new MovieException(StatusCode.NOT_FOUND);
+			}
+			return ((Theater)result.get(0));
+		} catch (SQLException e) {
+			
+			CustomLogger.log(Level.INFO, e.getMessage(),e);	
+			throw new MovieException(StatusCode.SQL_ERROR);
+		
+		}
+	}
 	
 	public void set(Theater theater) throws MovieException {
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.THEATER_DETAILS.get());
@@ -121,5 +141,6 @@ public class TheaterDAO {
 		
 		
 	}
+	
 
 }

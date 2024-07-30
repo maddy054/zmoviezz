@@ -10,7 +10,8 @@ public class Constants {
 		THEATER_DETAILS("TheaterController","TheaterDao","Theater"),
 		SHOW_DETAILS("ShowController",	"ShowDao","Show"),
 		PAYMENT_DETAILS("PaymentController","PaymentDao","Payment"),
-		REVIEWS("ReviewController","ReviewDAO","Review");
+		REVIEWS("ReviewController","ReviewDAO","Review"),
+		USER_SESSION("SessionController","SessionDAO","UserSession");
 		
 		private String dao;
 		private String controller;
@@ -48,7 +49,15 @@ public class Constants {
 			
 		}
 		
-		public static enum User{
+		public static enum Language{
+			TAMIL,
+			ENGLISH,
+			MALAYALAM,
+			HINDI,
+			TELUGU
+		}
+		
+		public static enum UserRole{
 			 ADMIN,
 			 MANAGER,
 			 CUSTOMER;
@@ -67,6 +76,8 @@ public class Constants {
 			 ROMANCE,
 			 SCIENCE_FICTION,
 			 FANTACY;
+			
+			
 		 }
 		
 		public static enum StatusCode{
@@ -74,6 +85,7 @@ public class Constants {
 			SQL_ERROR(500),
 			OK(200),
 			UNAUTHOURIZED(401),
+			FORBIDDEN(403),
 			REFLECTION_ERROR(500),
 			OTHER_ERROR(500);
 			

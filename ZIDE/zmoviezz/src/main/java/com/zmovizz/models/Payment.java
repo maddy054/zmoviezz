@@ -1,7 +1,7 @@
 //$Id$
 package com.zmovizz.models;
 
-public class Payment {
+public class Payment extends Ticket {
 	private int paymentId;
 	private int mode;
 	private int ticketAmount;

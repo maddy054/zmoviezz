@@ -1,5 +1,7 @@
 	package com.zmovizz.utility;
 
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
@@ -7,8 +9,16 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
+import java.util.stream.Stream;
+
+import com.zmovizz.models.Constants.Language;
+import com.zmovizz.models.Constants.MovieType;
+import com.zmovizz.models.Constants.Tables;
+import com.zmovizz.models.Constants.UserRole;
+
 import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,10 +34,15 @@ public class QueryBuilder {
     private List<Integer> usedColumns;
     private List<Integer> whereConditions; 
     private List<Integer> joinColumn ;
+    private List<Integer> orderBy;
+    private boolean isDecending;
     private boolean isLimit = false;
     private boolean isOffset = false;
+    private boolean isLessThan = false;
+    private boolean isGreaterThan = false;
     private List<Integer> between;
     private boolean isNeedCount = false;
+    private boolean isLikeOperator = false;
     
     
     private Connection getConnection() throws SQLException {
@@ -56,6 +71,7 @@ public class QueryBuilder {
         this.whereConditions = new ArrayList<>();
         this.between = new ArrayList<>();
         this.joinColumn = new ArrayList<>();
+        this.orderBy = new ArrayList<>();
      
     }
 
@@ -92,10 +108,33 @@ public class QueryBuilder {
     	}
      	return this;
     }
+    public QueryBuilder orderBy(int... columns) {
+    	for(int column : columns) {
+    		orderBy.add(column);
+    	}
+    	return this;
+    }
+    public QueryBuilder desc() {
+    	this.isDecending = true;
+    	return this;
+    }
+    public QueryBuilder like() {
+    	this.isLikeOperator =true;
+    	return this;
+    }
+    
     
 	public QueryBuilder count(int count) {
 		this.usedColumns.add(count);
 		this.isNeedCount =true;
+		return this;
+	}
+	public QueryBuilder lessThan() {
+		this.isLessThan = true;
+		return this;
+	}
+	public QueryBuilder greaterThan() {
+		this.isGreaterThan = true;
 		return this;
 	}
 
@@ -131,10 +170,13 @@ public class QueryBuilder {
         query.append(" FROM ").append(tableName[0]);
         
         for(int i=1;i<tableName.length;i++) {
-        	
+        	int coulumIndex = i;
+        	if(i>1) {
+        		coulumIndex = i+1;
+        	}
         	query.append(" join "+tableName[i]).append(" on ");
-        	query.append(tableName[i-1]).append(".").append(getColumnNames(tableName[i-1],joinColumn.subList(i-1, i), false).get(0)).append(" = ");
-        	query.append(tableName[i]).append(".").append(getColumnNames(tableName[i],joinColumn.subList(i, i+1), false).get(0));
+        	query.append(tableName[i-1]).append(".").append(getColumnNames(tableName[i-1],joinColumn.subList(coulumIndex-1, coulumIndex), false).get(0)).append(" = ");
+        	query.append(tableName[i]).append(".").append(getColumnNames(tableName[i],joinColumn.subList(coulumIndex, coulumIndex+1), false).get(0));
         
         }
      
@@ -161,7 +203,8 @@ public class QueryBuilder {
         	
             query.append(" WHERE ");
             for (int i = 0; i < whereConditions.size(); i++) {
-                query.append(getColumnNames(tableName[0],whereConditions,false).get(i)).append(" = ? ");
+                query.append(getColumnNames(tableName[0],whereConditions,false).get(i)).append(" = ?");
+                
                 if (i < whereConditions.size() - 1) {
                     query.append(" AND ");
                 }
@@ -177,7 +220,18 @@ public class QueryBuilder {
         if (!whereConditions.isEmpty()) {
             query.append(" WHERE ");
             for (int i = 0; i < getColumnNames(tableName[0],whereConditions,false).size(); i++) {
-                query.append(getColumnNames(tableName[0],whereConditions,false).get(i)).append(" = ? ");
+                query.append(getColumnNames(tableName[0],whereConditions,false).get(i));
+                if(isGreaterThan) {
+                	query.append(" > ?");
+                }else if(isLessThan) {
+                	query.append(" < ?");
+                }else if(isLikeOperator) {
+                	query.append(" LIKE ? ");
+                }
+                
+                else {
+                	query.append(" = ?");
+                }
                 
                 if (i < whereConditions.size() - 1) {
                     query.append(" AND ");
@@ -186,7 +240,14 @@ public class QueryBuilder {
         }
         if(!between.isEmpty()) {
         	
-        	query.append(" AND ").append(getColumnNames(tableName[0],between,false).get(1)).append(" BETWEEN ? AND ? ");
+        	query.append(" AND ").append(getColumnNames(tableName[0],between,false).get(0)).append(" BETWEEN ? AND ? ");
+        }
+        
+        if(!orderBy.isEmpty()) {
+        	query.append(" ORDER BY ").append(getColumnNames(tableName[0],orderBy, false).get(0));
+        	if(isDecending) {
+        		query.append(" DESC ");
+        	}
         }
         if(isLimit) {
         	query.append(" LIMIT ? ");
@@ -307,7 +368,6 @@ public class QueryBuilder {
 	private List<Object> setObject(Class<?> objClass,ResultSet resultSet) {
 		List<Object> result = new ArrayList<Object>();
 		try {
-			ResultSetMetaData metaData = resultSet.getMetaData();
 			List<String> columns = new ArrayList<>();
 			
 			for(int i =0;i<tableName.length;i++) {
@@ -316,7 +376,6 @@ public class QueryBuilder {
 			
 			
 			//get the target class using reflection
-			List<Class<?>> columnType = getColumnType(metaData);
 			
 			Class<?> targetObj = Class.forName(objClass.getName());
 			
@@ -327,13 +386,34 @@ public class QueryBuilder {
 			while(resultSet.next()) {
 				
 				Object obj = targetObj.getDeclaredConstructor().newInstance();
+				Field[] fields = targetObj.getDeclaredFields();
+				
+				if(!joinColumn.isEmpty()) {
+					Class<?> joinClass = Class.forName(Tables.valueOf(tableName[1].toUpperCase()).getPojo());
+					Field[] joinFields = joinClass.getDeclaredFields();
+					fields = Stream.concat(Arrays.stream(fields), Arrays.stream(joinFields)).toArray(Field[]::new);
+				 
+					
+				}
 				
 				for(int i=0;i<columns.size();i++) {
+					Class<?> type = fields[i].getType();
 					
+					Object value = resultSet.getObject(i+1);
+					
+					if(type.equals(MovieType.class)) {
+						
+						value = MovieType.values()[Integer.parseInt(value.toString())];
+					}
+					else if(type.equals(Language.class)) {
+						value =  Language.values()[Integer.parseInt(value.toString())];
+					}else if(type.equals(UserRole.class)) {
+						value = UserRole.values()[Integer.parseInt(value.toString())];
+					}
 					//get the getter and invoke
-					Method method = targetObj.getDeclaredMethod("set"+getCamelCase(columns.get(i)),columnType.get(i));
-
-					method.invoke(obj,resultSet.getObject(i+1));
+					Method method = targetObj.getMethod("set"+getCamelCase(columns.get(i)),type);	
+					
+					method.invoke(obj,value);
 				}	
 				
 				// add all the object in list
@@ -349,26 +429,26 @@ public class QueryBuilder {
 		
 	}
 
-	private List<Class<?>> getColumnType(ResultSetMetaData metaData) throws SQLException, ClassNotFoundException {
-		
-		List<Class<?>> columnType = new   ArrayList<Class<?>>();
-		
-		if(usedColumns.isEmpty()) {
-			
-			int count = metaData.getColumnCount();
-			
-			for(int i=1;i<=count;i++) {
-				columnType.add(Class.forName(metaData.getColumnClassName(i)));
-			}
-			
-		}else {
-			for(int i=0; i<usedColumns.size();i++) {
-				
-				columnType.add(Class.forName(metaData.getColumnClassName(i+1)));
-			}
-		}
-		return columnType;
-	}
+//	private List<Class<?>> getColumnType(ResultSetMetaData metaData) throws SQLException, ClassNotFoundException {
+//		
+//		List<Class<?>> columnType = new   ArrayList<Class<?>>();
+//		
+//		if(usedColumns.isEmpty()) {
+//			
+//			int count = metaData.getColumnCount();
+//			
+//			for(int i=1;i<=count;i++) {
+//				columnType.add(Class.forName(metaData.getColumnClassName(i)));
+//			}
+//			
+//		}else {
+//			for(int i=0; i<usedColumns.size();i++) {
+//				
+//				columnType.add(Class.forName(metaData.getColumnClassName(i+1)));
+//			}
+//		}
+//		return columnType;
+//	}
 
 	private void setValues(PreparedStatement statement,Object object) throws SQLException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 	
@@ -379,9 +459,22 @@ public class QueryBuilder {
 		}
 		
 		for(int i=0;i<columns.size();i++) {
-				System.out.println(columns.get(i));
+				
 				Method method = object.getClass().getDeclaredMethod("get"+getCamelCase(columns.get(i)));
 			Object result = method.invoke(object);
+			
+			if(result.getClass().equals(MovieType.class)) {
+				MovieType movie =(MovieType)result;
+				result = movie.ordinal();
+				
+				
+			}else if(result.getClass().equals(Language.class)) {
+				Language language = (Language) result;
+				result = language.ordinal();
+			}else if(result.getClass().equals(UserRole.class)){
+				UserRole user = (UserRole) result;
+				result = user.ordinal();
+			}
 			statement.setObject(i+1,result);	
 		}
 	

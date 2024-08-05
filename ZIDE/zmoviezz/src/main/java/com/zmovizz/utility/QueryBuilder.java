@@ -1,12 +1,10 @@
 	package com.zmovizz.utility;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,6 +14,8 @@ import java.util.stream.Stream;
 
 import com.zmovizz.models.Constants.Language;
 import com.zmovizz.models.Constants.MovieType;
+import com.zmovizz.models.Constants.PaymentMode;
+import com.zmovizz.models.Constants.Status;
 import com.zmovizz.models.Constants.Tables;
 import com.zmovizz.models.Constants.UserRole;
 
@@ -43,7 +43,8 @@ public class QueryBuilder {
     private List<Integer> between;
     private boolean isNeedCount = false;
     private boolean isLikeOperator = false;
-    
+    private boolean isNeedAverage = false;
+    private int usedTable = 1;
     
     private Connection getConnection() throws SQLException {
     	try {
@@ -122,7 +123,10 @@ public class QueryBuilder {
     	this.isLikeOperator =true;
     	return this;
     }
-    
+    public QueryBuilder table(int table) {
+		this.usedTable = table;
+		return this;
+	}
     
 	public QueryBuilder count(int count) {
 		this.usedColumns.add(count);
@@ -144,7 +148,11 @@ public class QueryBuilder {
     	}
 		return this;
 	}
-  
+	public QueryBuilder average() {
+		this.isNeedAverage = true;
+		return this;
+		
+	}
     public String buildSelect() throws SQLException {
         StringBuilder query = new StringBuilder("SELECT ");
       
@@ -155,6 +163,9 @@ public class QueryBuilder {
         	if(isNeedCount) {
         		query.append(" COUNT(").append(getColumnNames(tableName[0],usedColumns,false).get(0)).append(")");
         		
+        	}else if(isNeedAverage){
+        		
+        		query.append(" AVERAGE(").append(getColumnNames(tableName[0],usedColumns,false).get(0)).append(")");
         	}else {
         	
         	 List<String> selectColumns = getColumnNames(tableName[0], usedColumns,false);
@@ -181,7 +192,7 @@ public class QueryBuilder {
         }
      
        buildWhere(query);
-        System.out.println(query);
+       System.out.println(query);
 
         return query.toString();
 
@@ -219,8 +230,9 @@ public class QueryBuilder {
     	 
         if (!whereConditions.isEmpty()) {
             query.append(" WHERE ");
-            for (int i = 0; i < getColumnNames(tableName[0],whereConditions,false).size(); i++) {
-                query.append(getColumnNames(tableName[0],whereConditions,false).get(i));
+            for (int i = 0; i < getColumnNames(tableName[usedTable-1],whereConditions,false).size(); i++) {
+            	query.append(tableName[usedTable-1]).append(".");
+                query.append(getColumnNames(tableName[usedTable-1],whereConditions,false).get(i));
                 if(isGreaterThan) {
                 	query.append(" > ?");
                 }else if(isLessThan) {
@@ -240,11 +252,11 @@ public class QueryBuilder {
         }
         if(!between.isEmpty()) {
         	
-        	query.append(" AND ").append(getColumnNames(tableName[0],between,false).get(0)).append(" BETWEEN ? AND ? ");
+        	query.append(" AND ").append(tableName[usedTable-1]).append(".").append(getColumnNames(tableName[usedTable-1],between,false).get(0)).append(" BETWEEN ? AND ? ");
         }
         
         if(!orderBy.isEmpty()) {
-        	query.append(" ORDER BY ").append(getColumnNames(tableName[0],orderBy, false).get(0));
+        	query.append(" ORDER BY ").append(tableName[usedTable-1]).append(".").append(getColumnNames(tableName[usedTable-1],orderBy, false).get(0));
         	if(isDecending) {
         		query.append(" DESC ");
         	}
@@ -409,7 +421,12 @@ public class QueryBuilder {
 						value =  Language.values()[Integer.parseInt(value.toString())];
 					}else if(type.equals(UserRole.class)) {
 						value = UserRole.values()[Integer.parseInt(value.toString())];
+					}else if(type.equals(PaymentMode.class)) {
+						value = PaymentMode.values()[Integer.parseInt(value.toString())];
+					}else if(type.equals(Status.class)) {
+						value = Status.values()[Integer.parseInt(value.toString())];
 					}
+					
 					//get the getter and invoke
 					Method method = targetObj.getMethod("set"+getCamelCase(columns.get(i)),type);	
 					
@@ -460,7 +477,7 @@ public class QueryBuilder {
 		
 		for(int i=0;i<columns.size();i++) {
 				
-				Method method = object.getClass().getDeclaredMethod("get"+getCamelCase(columns.get(i)));
+					Method method = object.getClass().getDeclaredMethod("get"+getCamelCase(columns.get(i)));
 			Object result = method.invoke(object);
 			
 			if(result.getClass().equals(MovieType.class)) {
@@ -474,6 +491,12 @@ public class QueryBuilder {
 			}else if(result.getClass().equals(UserRole.class)){
 				UserRole user = (UserRole) result;
 				result = user.ordinal();
+			}else if(result.getClass().equals(PaymentMode.class)) {
+				PaymentMode mode = (PaymentMode) result;
+				result = mode.ordinal();
+			}else if(result.getClass().equals(Status.class)) {
+				Status status = (Status) result;
+				result = status.ordinal();
 			}
 			statement.setObject(i+1,result);	
 		}
@@ -495,6 +518,8 @@ public class QueryBuilder {
 		return strBuilder.substring(0, 1).toUpperCase() + strBuilder.substring(1);
 		
 	}
+
+	
 	
 
 	

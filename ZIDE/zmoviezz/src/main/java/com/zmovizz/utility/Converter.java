@@ -5,6 +5,10 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Constants.StatusCode;
@@ -38,5 +42,16 @@ public class Converter {
  
         return hexString.toString();
     }
+    public static long getStartOfDay(long millis) {
+    	
+    	LocalDate date = LocalDate.ofInstant(Instant.ofEpochMilli(millis), ZoneId.of("Asia/Kolkata"));
+    	return  date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli();
 
+    }
+    public static long endOfDay(long millis) {
+    	
+    	LocalDate date = LocalDate.ofInstant(Instant.ofEpochMilli(millis), ZoneId.of("Asia/Kolkata"));
+    	return date.plusDays(1).atStartOfDay().toInstant(ZoneOffset.ofHoursMinutes(+5, +30)).toEpochMilli();
+    	
+    }
 }

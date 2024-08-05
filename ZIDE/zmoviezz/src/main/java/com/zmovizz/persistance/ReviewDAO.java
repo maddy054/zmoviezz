@@ -46,7 +46,7 @@ public class ReviewDAO {
 		}
 	}
 
-	public List<Object> getAll(Integer targetValue,int target) throws MovieException {
+	public List<Object> getAll(int targetValue,int target) throws MovieException {
 		
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.REVIEWS.get());
 		

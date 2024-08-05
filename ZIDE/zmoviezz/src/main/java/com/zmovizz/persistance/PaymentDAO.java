@@ -32,18 +32,19 @@ public class PaymentDAO {
 		}
 	}
 	
-	public int getId(int userId,long time) throws MovieException {
+	public int getId(long time) throws MovieException {
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.PAYMENT_DETAILS.get());
 		
 		try {
-			String query = queryBuilder.column(1).where(3,6).buildSelect();
+			String query = queryBuilder.where(5).buildSelect();
 			
-			List<Object> result = queryBuilder.executeQuery(Payment.class, query,userId,time);
+			List<Object> result = queryBuilder.executeQuery(Payment.class, query,time);
 			
 			if(result.isEmpty()) {
 				throw new MovieException(StatusCode.NOT_FOUND);
 			}
-			return (int)result.get(0);
+			Payment payment = (Payment) result.get(0);
+			return payment.getPaymentId();
 		} catch (SQLException e) {
 			CustomLogger.log(Level.INFO, e.getMessage(),e);	
 			throw new MovieException(StatusCode.SQL_ERROR);

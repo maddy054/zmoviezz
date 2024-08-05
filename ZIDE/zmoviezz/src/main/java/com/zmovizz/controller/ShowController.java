@@ -2,18 +2,19 @@
 package com.zmovizz.controller;
 
 import java.util.List;
+//
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.json.JSONObject;
-
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Response;
 import com.zmovizz.models.Show;
+
 import com.zmovizz.models.Constants.StatusCode;
 import com.zmovizz.persistance.MovieDAO;
 import com.zmovizz.persistance.ShowDAO;
+import com.zmovizz.utility.Converter;
 
 public class ShowController {
 	ShowDAO showDao = new  ShowDAO();
@@ -25,7 +26,7 @@ public class ShowController {
 		
 		try {
 			
-			Show result = showDao.get(Integer.parseInt(param.get("show").toString()));
+			Show result = showDao.get(Integer.parseInt(param.get("shows").toString()));
 			
 			response.setResponseCode(StatusCode.OK.get());
 			response.setData(result);
@@ -42,7 +43,16 @@ public class ShowController {
 	public Response set(Map<String, Object> param) {
 		
 		try {
+			Show show = (Show)param.get("object");
 			
+			long time = Converter.getStartOfDay(show.getTime());
+			long endTime = Converter.endOfDay(System.currentTimeMillis());
+		List<Object> existingShow = showDao.getByTime(show.getTheater(), time, endTime);
+		
+		if(existingShow.size() >=3  ) {
+			response.setMessage("Only 3 shows are allowed per day");
+			throw new MovieException(StatusCode.FORBIDDEN);
+		}
 			showDao.set((Show)param.get("object"));
 			response.setResponseCode(StatusCode.OK.get());
 			
@@ -53,10 +63,10 @@ public class ShowController {
 		}
 		return response;
 	}
-	public Response update(List<Object> param) { 
+	public Response update(Map<String, Object> param) { 
 		
 		try {
-			showDao.update((Show)param.get(0));
+			showDao.update((Show)param.get("object"));
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
@@ -71,12 +81,19 @@ public class ShowController {
 		
 		
 		try {
-	
-			List<Object> showDetails = showDao.getAll(Integer.parseInt(param.get("theater").toString()),Long.parseLong( param.get("date").toString()));
-		
-
+			Object location = param.get("location");
+			Object resultObj ;
+			if(location != null) {
+				resultObj = showDao.getAllForMovie(Integer.parseInt(param.get("movies").toString()),Integer.parseInt(param.get("location").toString()), Long.parseLong(param.get("date").toString()));
+			}else {
+				
+			resultObj = showDao.getAll(Integer.parseInt(param.get("theaters").toString()),Long.parseLong( param.get("date").toString()));
 			
-			response.setData(showDetails);
+			
+			}
+			
+			
+			response.setData(resultObj);
 			
 			response.setResponseCode(StatusCode.OK.get());
 			

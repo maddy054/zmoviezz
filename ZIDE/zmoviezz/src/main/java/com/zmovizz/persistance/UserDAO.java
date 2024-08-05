@@ -27,7 +27,7 @@ public class UserDAO {
 				throw new MovieException( StatusCode.NOT_FOUND);
 			}
 			User user = (User)result.get(0);
-			user.setPassword("");
+			
 			 return user;
 		
 		} catch (SQLException e) {
@@ -36,6 +36,20 @@ public class UserDAO {
 		}
 		
 		
+	}
+	public int getUserId(long mobile) throws MovieException {
+		try {
+		QueryBuilder queryBuilder = new QueryBuilder(Tables.USER_DETAILS.get());
+		
+		String query = queryBuilder.where(5).buildSelect();
+		List<Object> result = queryBuilder.executeQuery(User.class,query,mobile);
+		User user =(User)result.get(0);
+		return user.getId();
+		} catch (SQLException e) {
+			CustomLogger.log(Level.WARNING, e.getMessage(),e);
+			throw new MovieException(StatusCode.SQL_ERROR);
+		}
+				
 	}
 
 	public void set(User user) throws MovieException {
@@ -97,4 +111,23 @@ public class UserDAO {
 			throw new MovieException(StatusCode.SQL_ERROR);
 		}
 	}
+	public UserRole validateUser(long mobile, String password) throws MovieException {
+		
+		
+		try {
+			QueryBuilder queryBuilder = new QueryBuilder(Tables.USER_DETAILS.get());
+			String query = queryBuilder.where(2,5).buildSelect();
+			List<Object> result = queryBuilder.executeQuery(User.class,query,password,mobile);
+			if(result == null || result.size() == 0) {
+				throw new MovieException(StatusCode.NOT_FOUND);
+			}
+			User user = (User)result.get(0);
+			return user.getRole();
+			 
+		}catch(SQLException e) {
+			CustomLogger.log(Level.WARNING, e.getMessage(),e);
+			throw new MovieException(StatusCode.SQL_ERROR);
+		}
+	}
+
 }

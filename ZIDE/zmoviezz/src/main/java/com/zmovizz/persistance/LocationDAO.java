@@ -50,7 +50,7 @@ public class LocationDAO {
 	}
 	
 	public void set(Location location) throws MovieException {
-		System.out.println(Tables.LOCATIONS.get());
+		
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.LOCATIONS.get());
 		
 		try {
@@ -83,8 +83,8 @@ public class LocationDAO {
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.LOCATIONS.get());
 		
 		try {
-			String query = queryBuilder.where(2).buildSelect();
-			return queryBuilder.executeQuery(Location.class, query, name);
+			String query = queryBuilder.where(2).like().buildSelect();
+			return queryBuilder.executeQuery(Location.class, query, name+"%");
 		
 			
 		} catch (SQLException e) {

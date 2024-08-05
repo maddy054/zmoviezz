@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.security.GeneralSecurityException;
+
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -20,6 +20,8 @@ import com.google.gson.Gson;
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Constants.Language;
 import com.zmovizz.models.Constants.MovieType;
+import com.zmovizz.models.Constants.PaymentMode;
+import com.zmovizz.models.Constants.Status;
 import com.zmovizz.models.Constants.StatusCode;
 import com.zmovizz.models.Constants.UserRole;
 
@@ -105,6 +107,14 @@ public class JSONConverter {
 	                	value = MovieType.valueOf(value.toString());
 	                }else if(fieldType.equals(Language.class)) {
 	                	value = Language.valueOf(value.toString());
+	                	
+	                }else if (fieldType.equals(PaymentMode.class)) {
+	             
+	                	
+	                    value = PaymentMode.valueOf(value.toString());
+	                    
+	                }else if(fieldType.equals(Status.class)) {
+	                	value = Status.valueOf(value.toString());
 	                }
 	           
 	                

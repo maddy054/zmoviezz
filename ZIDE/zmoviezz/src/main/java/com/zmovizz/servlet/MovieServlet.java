@@ -35,16 +35,12 @@ public class MovieServlet extends HttpServlet{
         resp.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         resp.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, APIKEY");
 
-        if ("OPTIONS".equalsIgnoreCase(req.getMethod())) {
-        	resp.setStatus(HttpServletResponse.SC_OK);
-			return;
-        }
 
 		String[] pathInfo = req.getPathInfo().split("/");
 		int length = pathInfo.length;
-		
+		Tables table = Tables.USER_SESSION;
 		MethodType method = MethodType.GET;
-		Tables table =Tables.USER_DETAILS;
+		
 		Map<String,Object> parameter = new HashMap<>();
 		
 		String reqMethod = req.getMethod();
@@ -70,137 +66,48 @@ public class MovieServlet extends HttpServlet{
 			}
 				break;
 		}	
-//		for(int i=1;i<length;i++) {
-//			
-//			if(i%2 == 0) {
-//				parameter.add(pathInfo[i]);
-//			}	
-//		}
-		
-		switch (pathInfo[1]) {
-		
-		case "users":	
+		for(int i=1;i<length;i++) {
 			
-
-			if(length >= 4 ) {
-				parameter.put("user", pathInfo[2]);
-				
-				if(pathInfo[3].equals("tickets")) {
-					table =Tables.TICKET_DETAILS;
-					String status = req.getParameter("status");
-					if(status != null) {
-						parameter.put("status",status);
-					}
-				}else if(pathInfo[3].equals("login") ) {
-					table = Tables.USER_SESSION;
-					
-					parameter.put("session",req.getSession(true).getId());
-					parameter.put("userAgent",req.getHeader("User-Agent"));
-
-				}
-				
-			}
-			
-			break;
-			
-		case "session":
-			table = Tables.USER_SESSION;
-			
-			parameter.put("session",req.getSession(false));
-			parameter.put("userAgent",req.getHeader("User-Agent"));
-			break;
-			
-		case "theaters":
-			
-			table = Tables.THEATER_DETAILS;
-			String location =  req.getParameter("location");
-			if(length > 2) {
-				parameter.put("theater",pathInfo[2] );
-			}
-			if(location != null) {
-				parameter.put("location",location);
-			}
-			
-			if(length >= 4 && pathInfo[3].equals("movies")) {
-				table = Tables.MOVIE_DETAILS;
-				if(length>4) {
-					parameter.put("movie",pathInfo[4] );
-				}
-				if(length >= 6 && pathInfo[5].equals("shows")) {
-					
-					table = Tables.SHOW_DETAILS;
-					if(length >6) {
-						
-						System.out.println(parameter.get("show"));
-					}else {
-						parameter.put("date", req.getParameter("date"));
-					}
-					if(length >= 8 &&  pathInfo[7].equals("tickets")) {
-						table = Tables.TICKET_DETAILS;
-						if(length>8) {
-							parameter.put("ticket",pathInfo[7] );
-						}
-					
-					}	
-				}
-			}else if(length >= 4 && pathInfo[3].equals("shows")) {
-				table = Tables.SHOW_DETAILS;
-				Object date = req.getParameter("date");
-				if(length>4) {
-					parameter.put("show",pathInfo[4] );
-				}else if(date != null){
-					parameter.put("date", date);
-				}
-				if(length >= 6 &&  pathInfo[5].equals("tickets")) {
-					table = Tables.TICKET_DETAILS;
-					if(length>6) {
-						parameter.put("ticket",pathInfo[7] );
-					}
-				
-				}	
-			} 
-	
-		break;
-		case "movies":
-			table =  Tables.MOVIE_DETAILS;
-			if(pathInfo.length > 2) {
-				parameter.put("movieId", pathInfo[2]);
-			}
-			
-			String name = req.getParameter("name");
-			String page = req.getParameter("page");
-			String type = req.getParameter("type");
-			if(name != null ) {
-				parameter.put("name",name);
-			}if(page != null) {
-				parameter.put("page",Integer.parseInt(page));
-			}if(type != null) {
-				parameter.put("type", type);
-			}
-			
-			if(length >= 4 && pathInfo[3].equals("reviews")) {
-				table = Tables.REVIEWS;
-			}
-			
-		
-		break;
-		case "locations":
-			table = Tables.LOCATIONS;
-			Object locationName = req.getParameter("name");
-			if(locationName != null) {
-				parameter.put("locationName",locationName);
-			}
-			
-			break;
-		
-			
+			if(i%2 == 0) {
+				parameter.put(pathInfo[i-1],pathInfo[i]);
+			}	
 		}
 		
+		Map<String, String[]> ParameterMapp = req.getParameterMap();
+		
+		for(String key:ParameterMapp.keySet()) {
+			parameter.put(key, req.getParameter(key));
+		}
+		
+		Tables[] values = Tables.values();
+		
+		String finalResource = pathInfo[length-1];
+		
+		if(length%2 != 0) {
+			finalResource = pathInfo[length-2];
+		}
+		
+		for(Tables enumTable :values) {
+			if(enumTable.getUrl().equals(finalResource)){
+				table = enumTable;
+				if(finalResource.equals("sessions")) {
+					parameter.put("session",req.getSession(false));
+					parameter.put("userAgent",req.getHeader("User-Agent"));
+				}
+				
+			}
+		}
+		
+		if(pathInfo.length>=2 && pathInfo[1].equals("login")) {
+			table = Tables.USER_SESSION;
+			parameter.put("session",req.getSession(true).getId());
+			parameter.put("userAgent",req.getHeader("User-Agent"));
+		}
 			
 	
 		if(reqMethod.equals("PUT") ||reqMethod.equals("POST")) {
 			
-			if(!pathInfo[1].equals("session")) {
+			if(!pathInfo[1].equals("sessions")) {
 			try {
 				
 				JSONObject jsonObj = JSONConverter.getJsonObj(req);

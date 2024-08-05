@@ -1,23 +1,23 @@
 //$Id$
 package com.zmovizz.models;
 
-public class Theater {
-	private int id;
-	private String name;
+public class Theater extends Show{
+	private int theaterId;
+	private String theaterName;
 	private int manager ;
 	private int location;
 	private String address;
-	public int getId() {
-		return id;
+	public int getTheaterId() {
+		return theaterId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setTheaterId(int id) {
+		this.theaterId = id;
 	}
-	public String getName() {
-		return name;
+	public String getTheaterName() {
+		return theaterName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTheaterName(String name) {
+		this.theaterName = name;
 	}
 	public int getManager() {
 		return manager;

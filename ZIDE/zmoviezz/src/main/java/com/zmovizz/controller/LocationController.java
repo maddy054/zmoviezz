@@ -2,6 +2,7 @@
 package com.zmovizz.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,11 +18,11 @@ public class LocationController {
 	Logger logger = Logger.getLogger(LocationController.class.getName());
 	
 	
-	public Response get(List<Object> param) {
+	public Response get(Map<String,Object> param) {
 		
 		try {
 			
-			Location result = (Location) locationDao.get((int)param.get(0));
+			Location result = (Location) locationDao.get((int)param.get("locations"));
 			response.setResponseCode(StatusCode.OK.get());
 			response.setData(result);
 			
@@ -34,10 +35,10 @@ public class LocationController {
 	}
 	
 	
-	public Response set(List<Object> param) {
+	public Response set(Map<String,Object> param) {
 		
 		try {
-			locationDao.set((Location)param.get(0));
+			locationDao.set((Location)param.get("object"));
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
@@ -47,10 +48,10 @@ public class LocationController {
 		}
 		return response;
 	}
-	public Response update(List<Object> param) { 
+	public Response update(Map<String,Object> param) { 
 		
 		try {
-			locationDao.update((Location)param.get(0));
+			locationDao.update((Location)param.get("object"));
 			response.setResponseCode(StatusCode.OK.get());
 			
 		}catch(MovieException e) {
@@ -62,15 +63,15 @@ public class LocationController {
 	}
 	
 		
-	public 	Response getAll(List<Object> param) {
+	public 	Response getAll(Map<String,Object> param) {
 		
 		try {
 			List<Object> result ;
-			
-			if(param.isEmpty()) {
+			Object name = param.get("name");
+			if(name == null) {
 				result = locationDao.getAll();
 			}else {
-				result = locationDao.getAll((String)param.get(0));
+				result = locationDao.getAll(name.toString());
 			}
 			
 			response.setData(result);

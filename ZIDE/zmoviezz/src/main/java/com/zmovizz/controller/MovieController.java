@@ -1,6 +1,7 @@
 //$Id$
 package com.zmovizz.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,6 +14,8 @@ import com.zmovizz.models.Response;
 import com.zmovizz.models.Constants.StatusCode;
 import com.zmovizz.models.Movie;
 import com.zmovizz.persistance.MovieDAO;
+import com.zmovizz.persistance.ShowDAO;
+import com.zmovizz.utility.Converter;
 
 public class MovieController {
 	MovieDAO movieDao = new  MovieDAO();
@@ -24,7 +27,7 @@ public class MovieController {
 		
 		try {
 			
-			Movie result = (Movie) movieDao.get(Integer.parseInt( param.get("movieId").toString()));
+			Movie result = (Movie) movieDao.get(Integer.parseInt( param.get("movies").toString()));
 			response.setResponseCode(StatusCode.OK.get());
 			response.setData(result);
 			
@@ -54,7 +57,7 @@ public class MovieController {
 		
 		try {
 			Movie movie = (Movie)param.get("object");
-			movie.setId(Integer.parseInt(param.get("movieId").toString()));
+			movie.setId(Integer.parseInt(param.get("movies").toString()));
 			
 			movieDao.update((Movie)param.get("object"));
 			response.setResponseCode(StatusCode.OK.get());
@@ -74,7 +77,9 @@ public class MovieController {
 			Object page = param.get("page");
 			Object name = param.get("name");
 			Object type = param.get("type");
-			
+			if(page == null) {
+				page = 1;	
+			}
 			if(name != null) {
 				data = movieDao.searchMovie(name.toString(), searchCount);
 			}	
@@ -85,14 +90,22 @@ public class MovieController {
 					 data.addAll( movieDao.getAllRecent(count,offset));
 				}if(type.equals("upcoming") || type.equals("all")){
 					 data.addAll(movieDao.getAllUpcoming(count,offset));
+					 
 				} if(type.equals("today")) {
+					ShowDAO showDao = new ShowDAO();
 					
+
+			      
+			        long startOfDay =  Converter.getStartOfDay(System.currentTimeMillis());
+
+					data.addAll(showDao.getAll(Integer.parseInt( param.get("theaters").toString()), startOfDay));
 				}
 			}
 
 			Object resData = new Object();
 			if(type != null && type.equals("all")){
 				Map<String , List<Object>> result = new HashMap<String, List<Object>>();
+				
 				result.put("recentMovies", data.subList(0, 4));
 				result.put("upcomingMovies", data.subList(5, data.size()));
 				resData = result;
@@ -111,7 +124,5 @@ public class MovieController {
 		return response;
 	}
 	
-	private void replaceData() {
-		
-	}
+	
 }

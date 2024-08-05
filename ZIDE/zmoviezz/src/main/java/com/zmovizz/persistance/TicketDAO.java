@@ -93,6 +93,19 @@ public class TicketDAO {
 		
 		}
 	}
+	public List<Object> getTicketForShow(int showId) throws MovieException {
+		try {
+			
+			QueryBuilder queryBuilder = new QueryBuilder(Tables.PAYMENT_DETAILS.get(),Tables.TICKET_DETAILS.get());
+			String query = queryBuilder.join(1,7).where(2).table(2).buildSelect();
+			
+		 return queryBuilder.executeQuery(Ticket.class, query,showId);
+			
+		}catch(SQLException e) {
+			CustomLogger.log(Level.WARNING, e.getMessage(),e);
+			throw new MovieException(StatusCode.SQL_ERROR);
+		}
+	}
 	
 	
 }

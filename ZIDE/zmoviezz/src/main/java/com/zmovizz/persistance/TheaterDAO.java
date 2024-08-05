@@ -110,12 +110,12 @@ public class TheaterDAO {
 		
 	}
 	
-	public List<Object> getAll() throws MovieException {
+	public List<Object> getAll(int limit) throws MovieException {
 		QueryBuilder queryBuilder  = new QueryBuilder(Tables.THEATER_DETAILS.get());
 		
 		try {
-			String query = queryBuilder.buildSelect();
-			return queryBuilder.executeQuery(Theater.class, query);
+			String query = queryBuilder.limit().buildSelect();
+			return queryBuilder.executeQuery(Theater.class, query,limit);
 		} catch (SQLException e) {
 			
 			CustomLogger.log(Level.INFO, e.getMessage(),e);	

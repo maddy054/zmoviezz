@@ -3,28 +3,31 @@ package com.zmovizz.models;
 
 public class Constants {
 	public static enum Tables{
-		USER_DETAILS("UserController","UserDao","User"),
-		MOVIE_DETAILS("MovieController","MovieDao","Movie"),
-		LOCATIONS("LocationController","LocationDao","Location"),
-		TICKET_DETAILS("TicketController","TicketDao","Ticket"),
-		THEATER_DETAILS("TheaterController","TheaterDao","Theater"),
-		SHOW_DETAILS("ShowController",	"ShowDao","Show"),
-		PAYMENT_DETAILS("PaymentController","PaymentDao","Payment"),
-		REVIEWS("ReviewController","ReviewDAO","Review"),
-		USER_SESSION("SessionController","SessionDAO","UserSession");
+		
+		USER_DETAILS("UserController","UserDao","User","users"),
+		MOVIE_DETAILS("MovieController","MovieDao","Movie","movies"),
+		LOCATIONS("LocationController","LocationDao","Location","locations"),
+		TICKET_DETAILS("TicketController","TicketDao","Ticket","tickets"),
+		THEATER_DETAILS("TheaterController","TheaterDao","Theater","theaters"),
+		SHOW_DETAILS("ShowController",	"ShowDao","Show","shows"),
+		PAYMENT_DETAILS("PaymentController","PaymentDao","Payment","payments"),
+		REVIEWS("ReviewController","ReviewDAO","Review","reviews"),
+		USER_SESSION("SessionController","SessionDAO","UserSession","sessions");
 		
 		private String dao;
 		private String controller;
 		private String pojo;
+		private String url;
 		private String controllerPackage = "com.zmovizz.controller.";
 		private String daoPackage ="com.zmovizz.persistance.";
 		private String pojoPackage = "com.zmovizz.models.";
 		
 
-		Tables(String controller,String dao,String pojo) {
+		Tables(String controller,String dao,String pojo,String url) {
 			this.pojo = pojoPackage+pojo;
 			this.dao = daoPackage+dao;
 			this.controller = controllerPackage+controller;
+			this.url = url;
 		}
 		public  String getDao() {
 			return this.dao;
@@ -34,6 +37,9 @@ public class Constants {
 		}
 		public String getPojo() {
 			return this.pojo;
+		}
+		public String getUrl() {
+			return url;
 		}
 
 		public String get() {

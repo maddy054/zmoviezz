@@ -1,12 +1,15 @@
 //$Id$
 package com.zmovizz.models;
 
-public class Ticket extends Show{
+import com.zmovizz.models.Constants.Status;
+
+public class Ticket extends Payment{
+	
 	private int id;
 	private int show;
 	private int userId;
 	private String seat;
-	private int status;
+	private Status status;
 	private long bookingTime;
 	private int payment;
 	
@@ -34,10 +37,10 @@ public class Ticket extends Show{
 	public void setSeat(String seat) {
 		this.seat = seat;
 	}
-	public int getStatus() {
+	public Status getStatus() {
 		return status;
 	}
-	public void setStatus(int status) {
+	public void setStatus(Status status) {
 		this.status = status;
 	}
 	public long getBookingTime() {

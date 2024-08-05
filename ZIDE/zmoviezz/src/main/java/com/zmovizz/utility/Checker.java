@@ -2,6 +2,7 @@
 package com.zmovizz.utility;
 
 public class Checker {
+	
 	public static boolean checkNull(Object object) {
 		return object == null;
 	}

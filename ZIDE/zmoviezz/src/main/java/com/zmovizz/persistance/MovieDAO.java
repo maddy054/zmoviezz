@@ -2,9 +2,7 @@
 package com.zmovizz.persistance;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 
 import com.zmovizz.exceptions.MovieException;
@@ -68,28 +66,15 @@ public class MovieDAO {
 		
 	}
 	
-//	public void getAll(String name) throws MovieException {
-//		
-//		try {
-//			QueryBuilder queryBuilder = new QueryBuilder(Tables.MOVIE_DETAILS.get());
-//			String query = queryBuilder.column(1,2).where(2).buildSelect();
-//			List<Object> result = queryBuilder.executeQuery(Movie.class, query, name);
-//			
-//		}catch(SQLException e) {
-//			CustomLogger.log(Level.INFO, e.getMessage(),e);
-//			throw new MovieException(StatusCode.SQL_ERROR);
-//		}
-//	}
 	
 	
-	
-	public List<Object> getAll(Integer theater) throws MovieException {
+	public List<Object> getAll(Integer theater,long time) throws MovieException {
 		try {
 			QueryBuilder queryBuilder = new QueryBuilder(Tables.SHOW_DETAILS.get(),Tables.MOVIE_DETAILS.get());
 			String query = queryBuilder.join(4,1).where(4).between(2,1).buildSelect();
-			long currTime = System.currentTimeMillis();
+			
 			long millisPerDay = 86400000l;
-			return queryBuilder.executeQuery(Movie.class, query, theater,currTime,currTime+millisPerDay);
+			return queryBuilder.executeQuery(Movie.class, query, theater,time,time+millisPerDay);
 			
 		}catch(SQLException e) {
 			CustomLogger.log(Level.INFO, e.getMessage(),e);

@@ -12,19 +12,19 @@ public class Review {
 	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public int getTarget() {
 		return target;
 	}
-	public void setTarget(Integer target) {
+	public void setTarget(int target) {
 		this.target = target;
 	}
 	public int getUserId() {
 		return userId;
 	}
-	public void setUserId(Integer userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 	public String getDescription() {
@@ -36,19 +36,19 @@ public class Review {
 	public int getRating() {
 		return rating;
 	}
-	public void setRating(Integer rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 	public int getReviewFor() {
 		return reviewFor;
 	}
-	public void setReviewFor(Integer reviewfor) {
+	public void setReviewFor(int reviewfor) {
 		this.reviewFor = reviewfor;
 	}
 	public long getTime() {
 		return time;
 	}
-	public void setTime(Long time) {
+	public void setTime(long time) {
 		this.time = time;
 	}
 	

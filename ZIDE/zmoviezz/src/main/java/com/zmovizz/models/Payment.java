@@ -1,12 +1,24 @@
 //$Id$
 package com.zmovizz.models;
 
-public class Payment extends Ticket {
+import com.zmovizz.models.Constants.PaymentMode;
+import com.zmovizz.models.Constants.Status;
+
+public class Payment {
 	private int paymentId;
-	private int mode;
-	private int ticketAmount;
+	private PaymentMode mode;
+	
 	private int payableAmount;
-	private int paymentStatus;
+	private Status paymentStatus;
+	private long paymentTime;
+	
+	public long getPaymentTime() {
+		return paymentTime;
+	}
+	public void setPaymentTime(long paymentTime) {
+		this.paymentTime = paymentTime;
+	}
+	
 	
 	public int getPaymentId() {
 		return paymentId;
@@ -14,28 +26,23 @@ public class Payment extends Ticket {
 	public void setPaymentId(int PaymentId) {
 		this.paymentId = PaymentId;
 	}
-	public int getMode() {
+	public PaymentMode getMode() {
 		return mode;
 	}
-	public void setMode(int mode) {
+	public void setMode(PaymentMode mode) {
 		this.mode = mode;
 	}
-	public int getTicketAmount() {
-		return ticketAmount;
-	}
-	public void setTicketAmount(int ticketAmount) {
-		this.ticketAmount = ticketAmount;
-	}
+
 	public int getPayableAmount() {
 		return payableAmount;
 	}
 	public void setPayableAmount(int payaleAmount) {
 		this.payableAmount = payaleAmount;
 	}
-	public int getPaymentStatus() {
+	public Status getPaymentStatus() {
 		return paymentStatus;
 	}
-	public void setPaymentStatus(int status) {
+	public void setPaymentStatus(Status status) {
 		this.paymentStatus = status;
 	}
 	

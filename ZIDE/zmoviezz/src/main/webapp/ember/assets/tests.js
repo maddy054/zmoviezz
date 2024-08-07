@@ -97,7 +97,7 @@ define('zmovizz/tests/app.lint-test', [], function () {
 
   QUnit.test('controllers/zmoviezz/shows.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'controllers/zmoviezz/shows.js should pass ESLint\n\n52:80 - \'index\' is not defined. (no-undef)\n71:13 - Unexpected console statement. (no-console)\n86:18 - \'error\' is defined but never used. (no-unused-vars)');
+    assert.ok(false, 'controllers/zmoviezz/shows.js should pass ESLint\n\n55:80 - \'index\' is not defined. (no-undef)\n74:13 - Unexpected console statement. (no-console)');
   });
 
   QUnit.test('controllers/zmoviezz/signup.js', function (assert) {

@@ -99,18 +99,13 @@ public class ShowDAO {
 		
 		}
 	}
-	public List<Object> getAllForMovie(int movie ,int location,long time) throws MovieException {
+	public List<Object> getAllForMovie(int movie ,int location,long startTime,long endTime) throws MovieException {
 		try {
 			
 			QueryBuilder queryBuilder = new QueryBuilder(Tables.THEATER_DETAILS.get(),Tables.SHOW_DETAILS.get());
 			String query = queryBuilder.join(1,7).where(4,5).between(2).table(2).buildSelect();
 			
-			LocalDate date = LocalDate.ofInstant(Instant.ofEpochMilli(time), ZoneId.of("Asia/Kolkata"));
-
-			long endOfDay = date.plusDays(1).atStartOfDay().toInstant(ZoneOffset.ofHoursMinutes(+5, +30)).toEpochMilli();
-			
-			
-			return  queryBuilder.executeQuery(Theater.class, query,movie,0,time,endOfDay);
+			return  queryBuilder.executeQuery(Theater.class, query,movie,0,startTime,endTime);
 			
 		}catch(SQLException e) {
 			CustomLogger.log(Level.WARNING, e.getMessage(),e);

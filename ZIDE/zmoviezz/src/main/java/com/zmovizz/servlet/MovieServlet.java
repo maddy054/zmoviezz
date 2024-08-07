@@ -3,24 +3,22 @@ package com.zmovizz.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 
 import com.zmovizz.exceptions.MovieException;
 import com.zmovizz.models.Constants.MethodType;
+import com.zmovizz.models.Constants.StatusCode;
 import com.zmovizz.models.Constants.Tables;
+import com.zmovizz.models.Response;
 import com.zmovizz.utility.JSONConverter;
 
 
@@ -135,9 +133,11 @@ public class MovieServlet extends HttpServlet{
 			jsonStr = JSONConverter.getJson(result);
 		     
 			
-		}catch(InstantiationException| IllegalAccessException| IllegalArgumentException| InvocationTargetException| NoSuchMethodException| SecurityException |ClassNotFoundException e) {
-			e.printStackTrace();
-			
+		}catch(Exception e) {
+			Response response = new Response();
+			response.setMessage("Internal error occurred");
+			response.setResponseCode(StatusCode.SQL_ERROR.get());
+			jsonStr = JSONConverter.getJson(response);		
 		}
 		
 		 PrintWriter out = resp.getWriter();

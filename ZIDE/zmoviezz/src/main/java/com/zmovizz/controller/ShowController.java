@@ -84,7 +84,7 @@ public class ShowController {
 			Object location = param.get("location");
 			Object resultObj ;
 			if(location != null) {
-				resultObj = showDao.getAllForMovie(Integer.parseInt(param.get("movies").toString()),Integer.parseInt(param.get("location").toString()), Long.parseLong(param.get("date").toString()));
+				resultObj = showDao.getAllForMovie(Integer.parseInt(param.get("movies").toString()),Integer.parseInt(param.get("location").toString()), Long.parseLong(param.get("date").toString()),0l);
 			}else {
 				
 			resultObj = showDao.getAll(Integer.parseInt(param.get("theaters").toString()),Long.parseLong( param.get("date").toString()));
